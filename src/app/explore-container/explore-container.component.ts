@@ -12,13 +12,14 @@ import { IUser } from '../models/user.model';
 export class ExploreContainerComponent {
 
   @Input() name?: string;
+  @Input() user: IUser | undefined;
 
   posts: IPost[] = [];
-  // Get the User appropriately
-  user: IUser = { new_api: true };
   constructor(private apiService: ApiService) {}
 
   getEntities() {
-    this.apiService.call(this.user, 'Post', 'getAll').subscribe(data => this.posts = data);
+    if (this.user) {
+      this.apiService.call(this.user, 'Post', 'getAll').subscribe(data => this.posts = data);
+    }
   }
 }
