@@ -19,7 +19,13 @@ export class ExploreContainerComponent {
 
   getEntities() {
     if (this.user) {
-      this.apiService.call(this.user, 'Post', 'getAll').subscribe(data => this.posts = data);
+      this.apiService.call(this.user, 'Post', 'getAll').subscribe(data => {
+        if (this.user?.new_api) {
+          this.posts = data.data.allPosts;
+        } else {
+          this.posts = data;
+        }
+      });
     }
   }
 }
