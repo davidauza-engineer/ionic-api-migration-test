@@ -2,12 +2,12 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
+      "title": "rest-json-server",
       "author": "typicode"
     },
     {
       "id": 2,
-      "title": "json-server-2",
+      "title": "rest-json-server-2",
       "author": "typicode-2"
     }
   ]
